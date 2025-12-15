@@ -55,7 +55,7 @@ public class CalendarsController {
 
     String[] wdays = {"(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"};
 
-    for (int x = 0; x < 7; x++) {
+    for (int x = 0; x < 6; x++) {
       Map<String, Object> day_map = new HashMap<String, Object>();
       LocalDate currentDate = todaysDate.plusDays(x);
 
@@ -66,9 +66,17 @@ public class CalendarsController {
           }
       }
 
+      int wdayNum = currentDate.getDayOfWeek().getValue();
+      System.out.println("currentDate: " + currentDate);
+      System.out.println("wdayNum： " + wdayNum);
+      if (wdayNum >= 7) {
+        break;
+      }
+
       day_map.put("month", currentDate.getMonthValue());
       day_map.put("date", currentDate.getDayOfMonth());
       day_map.put("plans", todayPlans);
+      day_map.put("wday", wdays[wdayNum]);
 
       weekDays.add(day_map);
     }
