@@ -67,11 +67,11 @@ public class CalendarsController {
       }
 
       int wdayNum = currentDate.getDayOfWeek().getValue();
-      System.out.println("currentDate: " + currentDate);
-      System.out.println("wdayNum： " + wdayNum);
-      if (wdayNum >= 7) {
-        break;
-      }
+      // System.out.println("currentDate: " + currentDate);
+      // System.out.println("wdayNum： " + wdayNum);
+      // if (wdayNum >= 7) {
+      //   break;
+      // }
 
       day_map.put("month", currentDate.getMonthValue());
       day_map.put("date", currentDate.getDayOfMonth());
