@@ -73,10 +73,10 @@ public class CalendarsController {
       //   break;
       // }
 
-      day_map.put("month", currentDate.getMonthValue());
-      day_map.put("date", currentDate.getDayOfMonth());
-      day_map.put("plans", todayPlans);
-      day_map.put("wday", wdays[wdayNum]);
+      dayMap.put("month", currentDate.getMonthValue());
+      dayMap.put("date", currentDate.getDayOfMonth());
+      dayMap.put("plans", todayPlans);
+      dayMap.put("wday", wdays[wdayNum]);
 
       weekDays.add(dayMap);
     }
