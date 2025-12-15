@@ -44,7 +44,7 @@ public class CalendarsController {
       newPlan.setPlan(planForm.getPlan());
       planRepository.insert(newPlan);
     }
-    return "redirect:/calendars";
+    return "redirect:/";
   }
 
   private List<Map<String, Object>> getWeek() {
@@ -55,7 +55,7 @@ public class CalendarsController {
 
     String[] wdays = {"(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)"};
 
-    for (int x = 0; x < 7; x++) {
+    for (int x = 0; x < 6; x++) {
       Map<String, Object> dayMap = new HashMap<>();
       LocalDate currentDate = todaysDate.plusDays(x);
 
@@ -66,9 +66,17 @@ public class CalendarsController {
           }
       }
 
+      int wdayNum = currentDate.getDayOfWeek().getValue();
+      // System.out.println("currentDate: " + currentDate);
+      // System.out.println("wdayNum： " + wdayNum);
+      // if (wdayNum >= 7) {
+      //   break;
+      // }
+
       dayMap.put("month", currentDate.getMonthValue());
       dayMap.put("date", currentDate.getDayOfMonth());
       dayMap.put("plans", todayPlans);
+      dayMap.put("wday", wdays[wdayNum]);
 
       weekDays.add(dayMap);
     }
